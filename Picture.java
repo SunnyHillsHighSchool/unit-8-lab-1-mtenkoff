@@ -367,7 +367,28 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
-
+   public void mirrorLeftToRight() 
+   {
+     //create a 2D array of pixels
+     Pixel[][]pixels = this.getPixels2D();
+     //create left pixel variable
+     Pixel leftPixel = null;
+     //create right pixel variable
+     Pixel rightPixel = null;
+     //loop through the rows
+     for(int row = 0; row < pixels.length;row++)
+     {
+       //loop through the columns
+       for(int col = 0; col < pixels[0].length/2;col++)
+       {
+         //assign values to the pixel variables
+         leftPixel = pixels[row][col];
+         rightPixel = pixels[row][pixels[0].length-1-col];
+         //copy the left pixels color to the right pixel
+         rightPixel.setColor(leftPixel.getColor());
+       }
+     }
+   }
    
 
 
